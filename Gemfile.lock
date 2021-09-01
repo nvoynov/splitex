@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    splitex (0.1.0)
+      lemmatizer (~> 0.2.2)
+      thor (~> 1.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    lemmatizer (0.2.2)
+    minitest (5.14.4)
+    rake (13.0.6)
+    thor (1.0.1)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  lemmatizer (~> 0.2.2)
+  minitest (~> 5.0)
+  rake (~> 13.0)
+  splitex!
+  thor (~> 1.0.1)
+
+BUNDLED WITH
+   2.2.15

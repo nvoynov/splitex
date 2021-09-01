@@ -1,0 +1,46 @@
+# articles
+a an the
+
+# question words
+
+how who why when what where
+
+# day of week, months, seasons of year
+
+now today tomorrow yesterday eve
+Monday Tuesday Wednesday Thursday Friday Saturday Sunday
+December January February March April May June July August September October November
+winter spring summer autumn
+
+# pronouns
+
+all any other another anybody anyone anything
+
+one each every either neither everybody everyone everything both some nothing something someone somebody nobody
+
+I you he she it we our us their theirs me mine my myself his him himself her hers herself its itself our ours ourselves that their theirs them themselves these they this those
+
+very many much more most much few little several
+
+what whatever which whichever who whoever whom whomever whose
+
+not and or xor equal plus minus percent
+
+# prepositions
+
+aboard about above across after against along alongside amid among amongst around as aside astride
+at atop in before behind below beneath beside besides
+between beyond but by concerning considering despite
+down during except excepting excluding failing following for from in including inside into like near nearby next of off on onto opposite outside over past per plus regarding round since than through throughout
+till to toward towards under underneath unlike until unto up upon versus via with within without worth
+
+# verbs
+
+be have do will let make take
+can could cannot
+must may might should would shall ought allow
+
+go try know look say find need see get put give tell think mean ask move call buy talk thank use pull push start finish begin end
+
+# html
+xhtml html div www org w3 image href title page body

@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+require "thor"
+
+module Splitex
+
+  class CLI < Thor
+    include Thor::Actions
+    namespace :splitex
+
+    desc "version", "Show Worklog version"
+    def version
+      puts "Splitex v#{Splitex::VERSION}"
+    end
+    map %w[--version -v] => :version
+
+    desc "words [FROM] [SKIP]", "Extract words FROM files [and skip words from SKIP]"
+    def words(from = "*.*", skip = "")
+      Printer.(Builder.(from, skip))
+    end
+
+  end
+
+end
