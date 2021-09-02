@@ -10,10 +10,9 @@ describe CLI do
       skip_source = File.join(Dir.pwd, "lib/skip-list.txt")
       Sandbox.() do
         File.write(source, LYRIC)
-        result, out, _ = OStreamCatcher.catch do
+        _, out, _ = OStreamCatcher.catch do
           CLI.start ["words", source, skip_source]
         end
-
         _(out).must_match "Lemma\tTotal\tForms\n"
         _(out).must_match "twentieth\t10\ttwentieth:10\n"
       end

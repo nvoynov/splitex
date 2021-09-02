@@ -22,9 +22,11 @@ module Splitex
     desc "words [FROM] [SKIP]", "Extract words FROM files [and skip words from SKIP]"
     def words(from = "*.*", skip = "")
       Printer.(Builder.(from, skip))
-    rescue StandardError => e
-      puts e.message
-      puts e.backtrace.inspect
+    end
+
+    desc "smart [FROM] [SKIP]", "Extract words FROM files [and skip words from SKIP]"
+    def smart(from = "*.*", skip = "")
+      SmartPrinter.(Builder.(from, skip))
     end
 
   end

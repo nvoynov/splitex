@@ -26,11 +26,10 @@ module Splitex
 
     # FIXME: blabla- dash at the end of the word
     SCANWORDREXP = /[a-zA-Z]+\-?\'?[a-zA-Z]+/
-    CONTRACTREXP = /(\'m|\'s|\'re|\'d|\'ve|\'ll|\'t)/
+    CONTRACTREXP = /(\'m|\'s|\'re|\'d|\'ve|\'ll|n\'t)/
     SUBSTITUTION = {
       /^can't/ => "can",
-      /^won't/ => "will",
-      /couldn't/ => "could not"
+      /^won't/ => "will"
     }
 
     protected

@@ -25,7 +25,7 @@ describe Builder do
           _(words.size).must_equal 59
           _(forms.size).must_equal 59
 
-          words, forms, skip = Builder.(source, skip_source)
+          words, forms, _ = Builder.(source, skip_source)
           _(words.size).must_equal 45
           _(forms.size).must_equal 45
         end
