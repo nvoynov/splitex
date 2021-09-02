@@ -24,11 +24,6 @@ module Splitex
       Printer.(Builder.(from, skip))
     end
 
-    desc "smart [FROM] [SKIP]", "Extract words FROM files [and skip words from SKIP]"
-    def smart(from = "*.*", skip = "")
-      SmartPrinter.(Builder.(from, skip))
-    end
-
   end
 
 end
