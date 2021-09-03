@@ -1,16 +1,22 @@
 # Splitex
 
-The `splitex` gem splits an input text into words. For each of those words it returns the following:
+The `splitex` gem extracts words from an text input. For each of the extracted word it returns lemma of the word, all word forms encountered in the input, and number of occurrences of the lemma and all forms.
 
-* the lemma of the word;
-* the number of all occurrences of the lemma;
-* the original word forms an number of occurrences.
+The typical output will be something like follows
 
 ```
 Lemma   Total   Forms
 winter      5   winters:3, winter:2
 froze       3   frozen:2, freeze:1
+...
 ```
+
+I created this gem to replenish my English vocabulary through reading and listening. I use it when I'm reading books or listening to audio with the following workflow:
+
+1. Take a text source and extract all words from the source into a separate file. Run the `splitex words FILENAME > skip.txt` command in your console. The `skip.txt` file will contain all the words extracted from `FILENAME` in natural order of its first occurrence in the text.
+2. Looking through the `skip.txt` remove all unknown words and then run the `splitex words FILENAME skip.txt > words.txt`. The `words.txt` file will contain words from `FILENAME` by the exclusion the words listed in `skip.txt`.
+3. Learn words from `words.txt`.
+4. Skip `skip.txt` together with `words.txt` when you start to working with the next text source: `splitex words NEWSOURCE 'skip.txt;words.txt'`.
 
 ## Installation
 
@@ -30,31 +36,18 @@ Or install it yourself as:
 
 ## Usage
 
-It provides a simple CLI that extract words from text files:
+At the moment it provides only one single command `splitex words SOURCE [SKIP_SOURCE]` that is extracting all words from `SOURCE` skipping the words listed in `SKIP_SOURCE` and printing those right in your console tab-separated. For each of the extracted word it list lemma, total of lemmas, all word forms with total number of form occurrences.
 
-    splitex book.txt "skip-basic-words.txt; skip/*.txt"
+The `SOURCE` and `SKIP_SOURCE` parameters might be filenames, list of filenames separated by ";", filename patterns with "?*", and/or mixed lists of filenames and patterns. All the following examples are correct
 
-My flow is the following
+    splitex words some-file.txt
+    splitex words some-file.txt skip.txt
+    splitex words '*.md' 'skip.txt'
+    splitex words '*.md' 'skip.txt;skip/*.*'
 
-1. Get an English digital book and audio.
-2. Convert the book to text (through pandoc) and split it by chapters
-3. Get the words from first chapter `splitex ch1.txt > words-ch1.txt`
-4. Copy "words-ch1.txt" to "skip" and "dict"
-5. Search through dict/ch1.txt and remove all known words
-6. Search words from dict/ch1.txt through dictionary, put its definitions and learn.
-7. Read and listen the first chapter.
-8. Prepare the second chapter by `splitex ch2.txt "skip-basic-words;skip/*.txt" > words-ch2.txt`. And there "words-ch2.txt" will contain only new words
+__When you want to use patterns__ `*?`, you should use `'<pattern>'` instead of just bare pattern without quotes or pattern in double quotes. There is an unexpected behavior of Thor library that always tries to expand `*` into separate arguments.
 
-Root folder for a book:
-* book.txt
-* skip
-  * skip-basic.txt
-  * skip-ch1.txt
-  * skip-ch2.txt
-* dict
-  * dict-ch1.txt
-  * dict-ch2.txt
-
+An average book usually consists of about 5000 - 6000 unique lemmas and 1-3 word forms per one lemma. There is no any sense to print all that stuff in console. But you are alway can use `>` operator like `splitex words book.txt > words.csv` and have tab-serparated result file.
 
 ## Development
 
